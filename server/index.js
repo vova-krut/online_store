@@ -1,4 +1,5 @@
 import express from "express";
+import models from "./models/models.js";
 import dotenv from "dotenv";
 import sequalize from "./db.js";
 
