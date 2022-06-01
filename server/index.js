@@ -6,6 +6,7 @@ import cors from "cors";
 import fileUpload from "express-fileupload";
 import router from "./routes/index.js";
 import errorHandler from "./middleware/ErrorHandlingMiddleware.js";
+import path from "path";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve("static")));
 app.use(fileUpload({}));
 app.use("/api", router);
 app.use(errorHandler);
