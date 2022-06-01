@@ -3,6 +3,7 @@ import models from "./models/models.js";
 import dotenv from "dotenv";
 import sequalize from "./db.js";
 import cors from "cors";
+import fileUpload from "express-fileupload";
 import router from "./routes/index.js";
 import errorHandler from "./middleware/ErrorHandlingMiddleware.js";
 
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(fileUpload({}));
 app.use("/api", router);
 app.use(errorHandler);
 
