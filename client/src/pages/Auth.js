@@ -3,17 +3,19 @@ import { Container, Form } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
-import { NavLink } from "react-router-dom";
-import { REGISTRATION_ROUTE } from "../utils/consts";
+import { NavLink, useLocation } from "react-router-dom";
+import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
 
 const Auth = () => {
+    const location = useLocation();
+    const isLogin = location.pathname === LOGIN_ROUTE;
     return (
         <Container
             className="d-flex justify-content-center align-items-center"
             style={{ height: window.innerHeight - 54 }}
         >
             <Card style={{ width: 600 }} className="p-5">
-                <h2 className="m-auto">Authorization</h2>
+                <h2 className="m-auto">{isLogin ? "Login" : "Registration"}</h2>
                 <Form className="d-flex flex-column">
                     <Form.Control
                         placeholder="Enter your email"
@@ -27,19 +29,32 @@ const Auth = () => {
                         className="justify-content-between mt-3"
                         style={{ display: "flex" }}
                     >
-                        <div style={{ width: "auto" }}>
-                            <NavLink
-                                to={REGISTRATION_ROUTE}
-                                style={{ textDecoration: "none" }}
-                            >
-                                Don't have account?
-                            </NavLink>
-                        </div>
+                        {isLogin ? (
+                            <div style={{ width: "auto" }}>
+                                Don't have account?{" "}
+                                <NavLink
+                                    to={REGISTRATION_ROUTE}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    Register
+                                </NavLink>
+                            </div>
+                        ) : (
+                            <div style={{ width: "auto" }}>
+                                Already have account?{" "}
+                                <NavLink
+                                    to={LOGIN_ROUTE}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    Login
+                                </NavLink>
+                            </div>
+                        )}
                         <Button
                             style={{ width: 100, marginRight: 12 }}
                             variant="outline-success"
                         >
-                            Login
+                            {isLogin ? "Login" : "Register"}
                         </Button>
                     </Row>
                 </Form>
