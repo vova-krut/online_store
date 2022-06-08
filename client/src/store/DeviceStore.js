@@ -2,16 +2,22 @@ import { makeAutoObservable } from "mobx";
 
 export default class DeviceStore {
     _types;
+    _selectedType;
     _brands;
+    _selectedBrand;
     _devices;
     constructor() {
         this._types = [
             { id: 1, name: "Fridges" },
             { id: 2, name: "Smartphones" },
+            { id: 3, name: "Laptops" },
+            { id: 4, name: "TVs" },
         ];
         this._brands = [
             { id: 1, name: "Samsung" },
             { id: 2, name: "Apple" },
+            { id: 3, name: "Lenovo" },
+            { id: 4, name: "Asus" },
         ];
         this._devices = [
             {
@@ -43,6 +49,8 @@ export default class DeviceStore {
                 img: "https://istudio.ua/upload/iblock/59c/iphone12-pro-128-gb-pacific-blue.png",
             },
         ];
+        this._selectedType = {};
+        this._selectedBrand = {};
         makeAutoObservable(this);
     }
 
@@ -50,8 +58,16 @@ export default class DeviceStore {
         this._types = types;
     }
 
+    setSelectedType(type) {
+        this._selectedType = type;
+    }
+
     setBrands(brands) {
         this._brands = brands;
+    }
+
+    setSelectedBrand(brand) {
+        this._selectedBrand = brand;
     }
 
     setDevices(devices) {
@@ -62,8 +78,16 @@ export default class DeviceStore {
         return this._types;
     }
 
+    get selectedType() {
+        return this._selectedType;
+    }
+
     get brands() {
         return this._brands;
+    }
+
+    get selectedBrand() {
+        return this._selectedBrand;
     }
 
     get devices() {
