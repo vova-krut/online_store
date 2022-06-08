@@ -48,6 +48,34 @@ export default class DeviceStore {
                 rating: 5,
                 img: "https://istudio.ua/upload/iblock/59c/iphone12-pro-128-gb-pacific-blue.png",
             },
+            {
+                id: 5,
+                name: "Iphone 12 pro",
+                price: 25000,
+                rating: 5,
+                img: "https://istudio.ua/upload/iblock/59c/iphone12-pro-128-gb-pacific-blue.png",
+            },
+            {
+                id: 6,
+                name: "Iphone 12 pro",
+                price: 25000,
+                rating: 5,
+                img: "https://istudio.ua/upload/iblock/59c/iphone12-pro-128-gb-pacific-blue.png",
+            },
+            {
+                id: 7,
+                name: "Iphone 12 pro",
+                price: 25000,
+                rating: 5,
+                img: "https://istudio.ua/upload/iblock/59c/iphone12-pro-128-gb-pacific-blue.png",
+            },
+            {
+                id: 8,
+                name: "Iphone 12 pro",
+                price: 25000,
+                rating: 5,
+                img: "https://istudio.ua/upload/iblock/59c/iphone12-pro-128-gb-pacific-blue.png",
+            },
         ];
         this._selectedType = {};
         this._selectedBrand = {};
