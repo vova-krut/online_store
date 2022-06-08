@@ -5,6 +5,8 @@ import { Context } from "../../index";
 const CreateDevice = ({ show, onHide }) => {
     const { device } = useContext(Context);
     const [info, setInfo] = useState([]);
+    const [brand, setBrand] = useState("");
+    const [type, setType] = useState("");
 
     const addInfo = () => {
         setInfo([...info, { title: "", description: "", number: Date.now() }]);
@@ -24,20 +26,30 @@ const CreateDevice = ({ show, onHide }) => {
             <Modal.Body>
                 <Form>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>Choose a type</Dropdown.Toggle>
+                        <Dropdown.Toggle>
+                            {type || "Choose a type"}
+                        </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.types.map((type) => (
-                                <Dropdown.Item key={type.id}>
+                                <Dropdown.Item
+                                    onClick={() => setType(type.name)}
+                                    key={type.id}
+                                >
                                     {type.name}
                                 </Dropdown.Item>
                             ))}
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle>Choose a brand</Dropdown.Toggle>
+                        <Dropdown.Toggle>
+                            {brand || "Choose a brand"}
+                        </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.brands.map((brand) => (
-                                <Dropdown.Item key={brand.id}>
+                                <Dropdown.Item
+                                    onClick={() => setBrand(brand.name)}
+                                    key={brand.id}
+                                >
                                     {brand.name}
                                 </Dropdown.Item>
                             ))}
