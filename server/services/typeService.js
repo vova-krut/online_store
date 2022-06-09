@@ -2,7 +2,7 @@ import { Type } from "../models/models.js";
 
 class TypeService {
     async create(name) {
-        const type = await Type.create(name);
+        const type = await Type.create({ name });
         return type;
     }
 

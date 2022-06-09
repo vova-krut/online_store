@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Container, Form } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
