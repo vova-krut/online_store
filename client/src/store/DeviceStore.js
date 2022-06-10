@@ -6,12 +6,19 @@ export default class DeviceStore {
     _brands;
     _selectedBrand;
     _devices;
+    _page;
+    _totalCount;
+    _limit;
+
     constructor() {
         this._types = [];
         this._brands = [];
         this._devices = [];
         this._selectedType = {};
         this._selectedBrand = {};
+        this._page = 1;
+        this._totalCount = 0;
+        this._limit = 3;
         makeAutoObservable(this);
     }
 
@@ -20,6 +27,7 @@ export default class DeviceStore {
     }
 
     setSelectedType(type) {
+        this.setPage(1);
         this._selectedType = type;
     }
 
@@ -28,11 +36,19 @@ export default class DeviceStore {
     }
 
     setSelectedBrand(brand) {
+        this.setPage(1);
         this._selectedBrand = brand;
     }
 
     setDevices(devices) {
         this._devices = devices;
+    }
+    setPage(page) {
+        this._page = page;
+    }
+
+    setTotalCount(count) {
+        this._totalCount = count;
     }
 
     get types() {
@@ -53,5 +69,17 @@ export default class DeviceStore {
 
     get devices() {
         return this._devices;
+    }
+
+    get totalCount() {
+        return this._totalCount;
+    }
+
+    get page() {
+        return this._page;
+    }
+
+    get limit() {
+        return this._limit;
     }
 }
