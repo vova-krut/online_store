@@ -5,7 +5,7 @@ import star from "../assets/star.png";
 import { useNavigate } from "react-router-dom";
 import { DEVICE_ROUTE } from "../utils/consts";
 
-const DeviceItem = ({ device }) => {
+const DeviceItem = ({ device, brand }) => {
     const navigate = useNavigate();
     return (
         <Col
@@ -20,7 +20,7 @@ const DeviceItem = ({ device }) => {
                     src={process.env.REACT_APP_API_URL + device.img}
                 />
                 <div className="text-black-50 d-flex justify-content-between align-items-center">
-                    <div>Apple</div>
+                    <div>{brand}</div>
                     <div className="mt-1 d-flex align-items-center">
                         <div>{device.rating}</div>
                         <Image width={18} height={18} src={star} />

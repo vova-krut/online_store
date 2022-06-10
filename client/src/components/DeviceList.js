@@ -8,8 +8,12 @@ const DeviceList = observer(() => {
     const { device } = useContext(Context);
     return (
         <Row className="d-flex">
-            {device.devices.map((device) => (
-                <DeviceItem key={device.id} device={device} />
+            {device.devices.map((currentDevice) => (
+                <DeviceItem
+                    key={currentDevice.id}
+                    device={currentDevice}
+                    brand={device.brands[currentDevice.brandId - 1].name}
+                />
             ))}
         </Row>
     );
